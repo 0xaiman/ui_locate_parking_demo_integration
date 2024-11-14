@@ -1,0 +1,27 @@
+ion-item {
+  --background: #ffff;
+  --border-width: 2px;
+  --border-color: #4c9aa0;
+  border-radius: 8px;
+
+  @apply bg-white;
+  @apply dark:bg-gray-800;
+  @apply dark:border-gray-600;
+
+  ion-label {
+    @apply text-black;
+    @apply dark:text-black;
+  }
+
+  ion-input {
+    color: black;
+    @apply dark:text-black;
+
+    ::ng-deep input::placeholder {
+      color: #999;
+    }
+
+    --background: #ffffff;
+    @apply dark:bg-gray-700;
+  }
+}

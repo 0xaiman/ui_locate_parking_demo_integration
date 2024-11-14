@@ -1,0 +1,33 @@
+<div class="container mx-auto p-2">
+  <h2 class="text-xl mb-4 p-2">Parking Bay Status</h2>
+  <div class="grid grid-cols-2 gap-4">
+    <!-- <ion-card
+      *ngFor="let parking of parkingStatus"
+      class="p-4 flex items-center h-24 rounded-lg border-2 border-primary"
+      (click)="navigateToAvailablePark(parking)"
+    >
+      <div
+        class="text-primary font-bold w-12 h-12 flex items-center justify-center rounded-full text-2xl"
+      >
+        {{ parking.floor }}
+      </div>
+      <div class="dark:text-white text-xl pl-2">
+        {{ parking.available }}/{{ parking.total }}
+      </div>
+    </ion-card> -->
+    <ion-card
+      *ngFor="let parking of stats"
+      class="p-4 flex items-center h-24 rounded-lg border-2 border-primary"
+      (click)="navigateToAvailablePark(parking)"
+    >
+      <div
+        class="text-primary font-bold w-12 h-12 flex items-center justify-center rounded-full text-2xl"
+      >
+        {{ parking.floorName }}
+      </div>
+      <div class="dark:text-white text-xl pl-2">
+        {{ parking.unoccupied }}
+      </div>
+    </ion-card>
+  </div>
+</div>

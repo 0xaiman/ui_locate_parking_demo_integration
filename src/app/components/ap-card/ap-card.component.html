@@ -1,0 +1,13 @@
+<ion-card class="flex flex-row items-center border-2 border-primary rounded-lg">
+  <img
+    *ngIf="parkingInfo.imageUrl"
+    [src]="parkingInfo.imageUrl"
+    alt="Parking Image"
+    class="w-1/4 h-auto rounded-l-lg pl-2"
+  />
+  <div class="p-4 w-full">
+    <p class="text-base dark:text-white font-semibold">
+      {{ parkingInfo.description }}
+    </p>
+  </div>
+</ion-card>

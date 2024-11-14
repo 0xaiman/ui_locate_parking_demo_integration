@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="font-bold">Available Parking</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-down"
+      refreshingSpinner="crescent"
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div class="main-content">
+    <app-ap-card
+      *ngIf="parkingInfo2"
+      [parkingInfo]="parkingInfo2"
+    ></app-ap-card>
+    <app-ap-status [status]="parkingInfo2.status"></app-ap-status>
+  </div>
+</ion-content>

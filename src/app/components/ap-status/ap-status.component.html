@@ -1,0 +1,31 @@
+<div class="container mx-auto p-4">
+  <div class="flex items-center justify-center mb-4">
+    <div class="flex items-center mr-6">
+      <span class="w-4 h-4 bg-green-600 rounded-full inline-block mr-2"></span>
+      <span class="dark:text-white">Available</span>
+    </div>
+    <div class="flex items-center">
+      <span class="w-4 h-4 bg-red-600 rounded-full inline-block mr-2"></span>
+      <span class="dark:text-white">Occupied</span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-4 gap-4">
+    <div
+      *ngFor="let bay of parkingStatus2"
+      [ngClass]="{
+        'bg-green-600': bay.isAvailable,
+        'bg-red-600': !bay.isAvailable,
+      }"
+      class="rounded-lg text-white text-center p-4 flex items-center justify-center"
+    >
+      <p class="font-bold">{{ bay.label }}</p>
+    </div>
+  </div>
+
+  <div class="flex justify-end mt-4">
+    <p class="text-gray-400 text-sm italic">
+      Parking bay availability will be updated every 30 sec*
+    </p>
+  </div>
+</div>

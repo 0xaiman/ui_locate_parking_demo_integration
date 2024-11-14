@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master  
+  pull_request:
+    branches:
+      - master 
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest  
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'  
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build the application
+        run: npm run build 
+
+      - name: Build the Angular app
+        run: npm run build --prod 
+        
+      - name: Serve the Angular app
+        run: |
+          npm start &  # or ng serve for Angular
+          sleep 10  # Allow time for the server to start
+          # You can add commands to run tests here
+          curl http://localhost:4200  # Check if the server is up
+        
+      - name: Install Ionic CLI
+        run: npm install -g @ionic/cli  
+
+      - name: Serve the Ionic app
+        run: |
+          ionic serve --host=0.0.0.0 --port=8100 &
+          sleep 10  # Allow time for the server to start
+          curl http://localhost:8100  # Check if the server is up 
