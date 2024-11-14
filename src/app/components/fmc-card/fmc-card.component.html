@@ -1,9 +1,9 @@
 <div class="flex items-center justify-center">
   <ion-card class="rounded-lg border-2 border-primary">
     <ion-card-header class="items-center">
-      <ion-card-title class="text-primary font-semibold text-xl"
-        >Insert Your Plate Number</ion-card-title
-      >
+      <ion-card-title class="text-primary font-semibold text-xl">
+        Insert Your Plate Number
+      </ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
@@ -15,8 +15,7 @@
             [(ngModel)]="numberPlate"
             placeholder="Insert here"
             required
-          >
-          </ion-input>
+          ></ion-input>
         </ion-item>
 
         <div class="flex justify-center pt-6">
@@ -31,6 +30,25 @@
           </button>
         </div>
       </form>
+
+      <div *ngIf="vehicleDetails" class="mt-6">
+        <ion-card>
+          <img
+            [src]="vehicleDetails.image"
+            alt="Vehicle Image"
+            class="w-full h-64 object-cover"
+          />
+          <ion-card-header>
+            <ion-card-title
+              >License Plate: {{ vehicleDetails.licensePlate }}</ion-card-title
+            >
+          </ion-card-header>
+          <ion-card-content>
+            <p>Parking Bay: {{ vehicleDetails.parkingBay }}</p>
+            <p>Parking Floor: {{ vehicleDetails.parkingFloor }}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
     </ion-card-content>
   </ion-card>
 </div>
